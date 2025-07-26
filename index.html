@@ -25,7 +25,9 @@
 
       <nav class="nav-menu-ovalado">
         <a href="#inicio" class="nav-link-ovalado"><span>Inicio</span></a>
-        <a href="#productos" class="nav-link-ovalado"><span>Productos</span></a>
+        <a href="https://tecamochas1.odoo.com/shop" class="nav-link-ovalado" target="_blank">
+  <span>Productos</span>
+</a>
         <a href="#nosotros" class="nav-link-ovalado"><span>Nosotros</span></a>
         <a href="#ordenar" class="nav-link-ovalado nav-link-cta-ovalado"><span>¡Pide ya!</span></a>
       </nav>
@@ -107,11 +109,10 @@
 
       <!-- Botón-carrito - márgenes reducidos -->
       <div class="w-full md:w-auto mt-2 md:mt-0 px-1 flex justify-center order-2 md:order-none">
-        <button
-          class="bg-transparent border-none p-0 focus:outline-none transform transition-all duration-300 hover:scale-110 active:scale-95">
-          <img src="images/carrito.png" alt="Ordenar ahora" class="h-24 md:h-28 object-contain">
-          <!-- Tamaño fijo para mejor control -->
-        </button>
+        <a href="https://tecamochas1.odoo.com/shop" target="_blank"
+   class="bg-transparent border-none p-0 focus:outline-none transform transition-all duration-300 hover:scale-110 active:scale-95">
+  <img src="images/carrito.png" alt="Ordenar ahora" class="h-24 md:h-28 object-contain">
+</a>
       </div>
     </div>
   </section>
@@ -183,6 +184,11 @@
   </section>
 
   <!-- ¿QUIÉNES SOMOS? -->
+  <script>
+    function toggleDescripcion(element) {
+      element.classList.toggle('active');
+    }
+  </script>
   <section id="acerca" class="bg-blue-100 py-16 px-6 text-center">
     <h2 class="text-4xl dynapuff text-orange-600 mb-12">¿Quiénes somos?</h2>
 
@@ -320,27 +326,28 @@
 
 
   <!-- AVISO DE PRIVACIDAD -->
-<div class="bg-blue-100 py-10 text-center">
-  <h1 class="text-3xl dynapuff text-blue-500 mb-10">¡Tus datos están seguros con nosotros!</h1>
-  <button onclick="document.getElementById('modalAviso').style.display='block'"
-    class="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-400 transition duration-300">
-    Ver aviso de Privacidad✅
-  </button>
-</div>
+  <div class="bg-blue-100 py-10 text-center">
+    <h1 class="text-3xl dynapuff text-blue-500 mb-10">¡Tus datos están seguros con nosotros!</h1>
+    <button onclick="document.getElementById('modalAviso').style.display='block'"
+      class="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-400 transition duration-300">
+      Ver aviso de Privacidad✅
+    </button>
+  </div>
 
-  <!-- Modal del aviso -->
+<!-- Modal del aviso -->
 <div id="modalAviso" class="modal">
   <div class="modal-contenido">
-    <h1 class="titulo-modal"><strong>🍓 Aviso de Privacidad – Tecamochas 🥭</strong></h1>
+    <h1 class="titulo-modal"><strong>🍓 Aviso de Privacidad - Tecamochas 🥭</strong></h1>
     <div class="texto-modal">
-     <p>En Tecamochas, con domicilio Venta Prieta, Pachuca de Soto, Hgo. estamos 
-      comprometidos con la protección de tus datos personales. Este Aviso de Privacidad 
-      explica cómo recopilamos, usamos, protegemos y, en su caso, compartimos la información 
-      personal que nos proporcionas a través de nuestra página web dedicada a la venta de cócteles
-       de frutas y escamochas.</p>
-       <br>
+      <p>En Tecamochas, con domicilio Venta Prieta, Pachuca de Soto, Hgo. estamos
+        comprometidos con la protección de tus datos personales. Este Aviso de Privacidad
+        explica cómo recopilamos, usamos, protegemos y, en su caso, compartimos la información
+        personal que nos proporcionas a través de nuestra página web dedicada a la venta de cócteles
+        de frutas y escamochas.</p>
+      <br>
       <p><strong>Datos recopilados:</strong></p>
-      <p>Nombre, correo, teléfono, dirección, datos de pago (protegidos), navegación (cookies), preferencias y pedidos.</p>
+      <p>Nombre, correo, teléfono, dirección, datos de pago (protegidos), navegación (cookies), preferencias y
+        pedidos.</p>
       <br>
       <p><strong>Finalidades:</strong></p>
       <ul>
@@ -351,13 +358,14 @@
       <br>
       <p><strong>Transferencia de datos:</strong> </p>
       <p>Solo a plataformas de pago y entrega, o por requerimiento legal.</p>
-      <br> 
+      <br>
       <p><strong>Seguridad:</strong> </p>
       <p>Usamos conexiones seguras (SSL) y protección de datos físicos y digitales.</p>
       <br>
       <p><strong>Derechos ARCO:</strong> </p>
-      <p>Puedes solicitar acceso, rectificación, cancelación u oposición escribiendo a <a href="mailto:tecamochas@gmail.com">tecamochas@gmail.com</a> o al 771 501 5000.</p>
-      <br> 
+      <p>Puedes solicitar acceso, rectificación, cancelación u oposición escribiendo a <a
+          href="mailto:tecamochas@gmail.com">tecamochas@gmail.com</a> o al 771 501 5000.</p>
+      <br>
       <p><strong>Cookies:</strong> </p>
       <p>Utilizamos cookies para mejorar tu experiencia. Puedes gestionarlas desde tu navegador.</p>
       <br>
@@ -366,8 +374,9 @@
       <br>
       <p><strong>¿Dudas?, contáctanos en:</strong></p>
       <p>tecamochas@gmail.com / 771-501-5000</p>
-     <br>
-      <p><strong>¡Gracias por confiar en nosotros para disfrutar de los mejores cócteles de frutas y escamochas!</strong></p>
+      <br>
+      <p><strong>¡Gracias por confiar en nosotros para disfrutar de los mejores cócteles de frutas y
+          escamochas!</strong></p>
     </div>
     <div class="text-center mt-8">
       <button onclick="document.getElementById('modalAviso').style.display='none'"
@@ -378,12 +387,33 @@
   </div>
 </div>
 
+  <!-- CHATBOT -->
+  <div id="chatbotContainer" class="chatbot-container">
+    <button id="chatbotToggle" class="chatbot-toggle">
+      <img src="images/logo.png" alt="Chatbot" class="chatbot-icon">
+    </button>
+    <div id="chatbotWindow" class="chatbot-window hidden">
+      <div class="chatbot-header">
+        <h3 class="dynapuff">¡Habla con nuestro Chatbot! 🍎</h3>
+        <button id="chatbotClose" class="chatbot-close">x</button>
+      </div>
+      <div id="chatbotMessages" class="chatbot-messages"></div>
+      <form id="chatbotForm" class="chatbot-form">
+        <input type="text" id="chatbotInput" placeholder="Escribe tu mensaje..." required>
+        <button type="submit" class="chatbot-send">Enviar</button>
+      </form>
+    </div>
+  </div>
   <!-- FOOTER -->
   <footer class="bg-pink-300 text-center py-4 text-white">
     <p>&copy; 2025 Tecamochas. Todos los derechos reservados.</p>
   </footer>
 
   <script src="tecamochas.js"></script>
+
+</body>
+
+</html>
 
 </body>
 
