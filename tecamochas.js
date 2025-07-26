@@ -1,33 +1,25 @@
-// =======================================
-// 0. UTILIDAD: Feedback al usuario
-// =======================================
+let currentMember = null; // Declaración única de currentMember
+
 function mostrarFeedback(mensaje, esExito) {
   const feedback = document.getElementById("mensajeFeedback");
   if (!feedback) return;
   feedback.textContent = mensaje;
   feedback.className = esExito ? "feedback-message success" : "feedback-message error";
   feedback.style.display = "block";
-  // Oculta después de 5s
   setTimeout(() => {
     if (feedback) feedback.style.display = "none";
   }, 5000);
 }
 
-
-// =======================================
-// 1. FORMULARIO DE CONTACTO (EmailJS)
-// =======================================
 function setupContactForm() {
-  // --- Inicializar EmailJS (sin .then/.catch) ---
   try {
-    emailjs.init("1uos-VH02BLwzOAnj"); // Public Key
+    emailjs.init("1uos-VH02BLwzOAnj");
     console.log("EmailJS inicializado.");
   } catch (err) {
     console.error("Error al inicializar EmailJS:", err);
     mostrarFeedback("Error al cargar el servicio de correo.", false);
   }
 
-  // --- Elementos del DOM ---
   const mostrarBtn = document.getElementById("mostrarFormulario");
   const formContainer = document.getElementById("formContainer");
   const formulario = document.getElementById("formularioContacto");
@@ -39,14 +31,12 @@ function setupContactForm() {
     return;
   }
 
-  // --- Mostrar formulario ---
   mostrarBtn.addEventListener("click", () => {
     formContainer.classList.remove("hidden");
     mostrarBtn.style.display = "none";
     if (feedback) feedback.style.display = "none";
   });
 
-  // --- Cancelar / ocultar ---
   cancelBtn.addEventListener("click", () => {
     formContainer.classList.add("hidden");
     mostrarBtn.style.display = "inline-block";
@@ -54,16 +44,12 @@ function setupContactForm() {
     if (feedback) feedback.style.display = "none";
   });
 
-  // --- Enviar formulario ---
   formulario.addEventListener("submit", (e) => {
     e.preventDefault();
-
-    // Datos
-    const nombre  = document.getElementById("nombre").value.trim();
-    const correo  = document.getElementById("correo").value.trim();
+    const nombre = document.getElementById("nombre").value.trim();
+    const correo = document.getElementById("correo").value.trim();
     const mensaje = document.getElementById("mensaje").value.trim();
 
-    // Validaciones básicas
     if (!nombre || !correo || !mensaje) {
       mostrarFeedback("Todos los campos son obligatorios.", false);
       return;
@@ -75,25 +61,22 @@ function setupContactForm() {
       return;
     }
 
-    // Estado de carga en botón
     const submitBtn = formulario.querySelector("[type=submit]");
     const originalText = submitBtn.textContent;
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<span class="loading-spinner"></span> Enviando...';
 
-    // ⚠️ AJUSTA los nombres a los campos de tu plantilla EmailJS:
     const templateParams = {
-      from_name: nombre,       // <-- en tu plantilla: {{from_name}}
-      from_email: correo,      // <-- en tu plantilla: {{from_email}}
-      message: mensaje,        // <-- en tu plantilla: {{message}}
-      time: new Date().toLocaleString() // <-- opcional, si lo incluiste
+      from_name: nombre,
+      from_email: correo,
+      message: mensaje,
+      time: new Date().toLocaleString()
     };
 
     emailjs.send("service_u8ffglm", "template_yoykqer", templateParams)
       .then(() => {
         mostrarFeedback("¡Mensaje enviado con éxito! 😊", true);
         formulario.reset();
-        // Oculta después de un momento
         setTimeout(() => {
           formContainer.classList.add("hidden");
           mostrarBtn.style.display = "inline-block";
@@ -112,17 +95,6 @@ function setupContactForm() {
       });
   });
 }
-
-
-// =======================================
-// INICIO AL CARGAR EL DOM
-document.addEventListener("DOMContentLoaded", setupContactForm);
-
-// =======================================
-// 2. DESCRIPCIÓN DE MIEMBROS DEL EQUIPO
-// =======================================
-
-let currentMember = null;
 
 function toggleMemberDescription(member) {
   const descriptions = {
@@ -146,16 +118,8 @@ function toggleMemberDescription(member) {
 
 window.toggleMemberDescription = toggleMemberDescription;
 
-
-// =======================================
-// 3. INICIALIZAR FUNCIONES AL CARGAR EL DOM
-// =======================================
-
 document.addEventListener('DOMContentLoaded', () => {
-
-  // =========================
-  // FORMULARIO DE COMENTARIOS
-  // =========================
+  setupContactForm();
 
   const commentForm = document.getElementById('commentForm');
   const commentsContainer = document.getElementById('commentsContainer');
@@ -164,20 +128,16 @@ document.addEventListener('DOMContentLoaded', () => {
   if (commentForm && commentsContainer) {
     commentForm.addEventListener('submit', function (e) {
       e.preventDefault();
-
       const userName = document.getElementById('userName').value;
       const userComment = document.getElementById('userComment').value;
 
       if (userName && userComment) {
         const newComment = document.createElement('div');
         const randomColor = bgColors[Math.floor(Math.random() * bgColors.length)];
-
         newComment.className = `${randomColor} rounded-xl p-4 shadow-md touch-card`;
         newComment.innerHTML = `"${userComment}" <span class="font-semibold">- ${userName}</span>`;
-
         commentsContainer.prepend(newComment);
         commentForm.reset();
-
         saveCommentToLocalStorage(userName, userComment);
       }
     });
@@ -193,10 +153,8 @@ document.addEventListener('DOMContentLoaded', () => {
       savedComments.forEach(comment => {
         const newComment = document.createElement('div');
         const randomColor = bgColors[Math.floor(Math.random() * bgColors.length)];
-
         newComment.className = `${randomColor} rounded-xl p-4 shadow-md touch-card`;
         newComment.innerHTML = `"${comment.text}" <span class="font-semibold">- ${comment.author}</span>`;
-
         commentsContainer.prepend(newComment);
       });
     }
@@ -204,14 +162,9 @@ document.addEventListener('DOMContentLoaded', () => {
     loadSavedComments();
   }
 
-  // =========================
-  // EMOJIS DE FRUTA ANIMADOS
-  // =========================
-
   function createFruitEmojis() {
     const container = document.getElementById('frutas-container');
     if (!container) return;
-
     const emojis = ['🍎', '🍊', '🍌', '🍓', '🍉', '🍇', '🍍', '🥭'];
     const colors = ['#FF5252', '#FFEB3B', '#4CAF50', '#FF4081', '#9C27B0'];
     const emojiCount = 70;
@@ -232,15 +185,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // =========================
-  // EFECTO DE MOUSE SOBRE EMOJIS
-  // =========================
-
   function setupMouseEffect() {
     document.addEventListener('mousemove', (e) => {
       const x = e.clientX / window.innerWidth;
       const y = e.clientY / window.innerHeight;
-
       document.querySelectorAll('.fruit-emoji').forEach((emoji, index) => {
         const speed = 0.1 + (index * 0.005);
         const xMove = (x - 0.5) * 50 * speed;
@@ -249,10 +197,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-
-  // =========================
-  // ANIMACIONES AL HACER SCROLL
-  // =========================
 
   function setupScrollAnimation() {
     const observer = new IntersectionObserver((entries) => {
@@ -268,31 +212,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // =========================
-  // EFECTO TÁCTIL EN DISPOSITIVOS
-  // =========================
-
   function setupTouchEffects() {
     const cards = document.querySelectorAll('.touch-card');
-
     cards.forEach(card => {
       card.addEventListener('touchstart', () => {
         card.classList.add('vibrate');
       });
-
       card.addEventListener('touchend', () => {
         card.classList.remove('vibrate');
       });
     });
   }
 
-  // =========================
-  // MOSTRAR/OCULTAR FORMULARIO DE COMENTARIOS
-  // =========================
-
   const toggleCommentFormBtn = document.getElementById('showCommentFormBtn');
   const commentFormContainer = document.getElementById('commentFormContainer');
-
   if (toggleCommentFormBtn && commentFormContainer) {
     toggleCommentFormBtn.addEventListener('click', () => {
       const isHidden = commentFormContainer.classList.contains('hidden');
@@ -301,36 +234,147 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // =========================
-  // INICIALIZACIÓN
-  // =========================
+  function setupChatbot() {
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotWindow = document.getElementById('chatbotWindow');
+    const chatbotClose = document.getElementById('chatbotClose');
+    const chatbotForm = document.getElementById('chatbotForm');
+    const chatbotMessages = document.getElementById('chatbotMessages');
+    const chatbotInput = document.getElementById('chatbotInput');
 
+    if (!chatbotToggle || !chatbotWindow || !chatbotClose || !chatbotForm || !chatbotMessages || !chatbotInput) {
+      console.error("Faltan elementos del chatbot en el DOM:", {
+        chatbotToggle: !!chatbotToggle,
+        chatbotWindow: !!chatbotWindow,
+        chatbotClose: !!chatbotClose,
+        chatbotForm: !!chatbotForm,
+        chatbotMessages: !!chatbotMessages,
+        chatbotInput: !!chatbotInput
+      });
+      return;
+    }
+
+    // Add welcome message
+    const welcomeMessage = document.createElement('div');
+    welcomeMessage.className = 'chatbot-message bot';
+    welcomeMessage.textContent = '¡Hola! Bienvenido a Tecamochas 🍎 ¿En qué puedo ayudarte hoy?';
+    chatbotMessages.appendChild(welcomeMessage);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+    chatbotToggle.addEventListener('click', () => {
+      chatbotWindow.classList.toggle('hidden');
+      if (!chatbotWindow.classList.contains('hidden')) {
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+      }
+    });
+
+    chatbotClose.addEventListener('click', () => {
+      chatbotWindow.classList.add('hidden');
+    });
+
+    let lastRequestTime = 0;
+    const minInterval = 15000; // 15 segundos de intervalo mínimo entre peticiones
+
+    chatbotForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const message = chatbotInput.value.trim();
+      if (!message) return;
+
+      const currentTime = Date.now();
+      if (currentTime - lastRequestTime < minInterval) {
+        mostrarFeedback("Por favor espera 15 segundos antes de enviar otro mensaje 🍎", false);
+        return;
+      }
+
+      // Add user message
+      const userMessage = document.createElement('div');
+      userMessage.className = 'chatbot-message user';
+      userMessage.textContent = message;
+      chatbotMessages.appendChild(userMessage);
+      chatbotInput.value = '';
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+      try {
+        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer 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'
+          },
+          body: JSON.stringify({
+            model: 'gpt-3.5-turbo',
+            messages: [
+              { role: 'system', content: 'Eres un asistente amigable de Tecamochas, una marca de snacks frutales. Responde en español con un tono alegre y útil, usando emojis relacionados con frutas (🍎🍊🍉) cuando sea apropiado. Ayuda con preguntas sobre productos, pedidos, o cualquier tema relacionado con Tecamochas.' },
+              { role: 'user', content: message }
+            ],
+            max_tokens: 150
+          })
+        });
+
+        if (!response.ok) {
+          if (response.status === 429) {
+            throw new Error('Demasiadas solicitudes. Por favor, espera unos minutos y vuelve a intentarlo.');
+          }
+          throw new Error(`Error en la respuesta de la API: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        const botMessage = document.createElement('div');
+        botMessage.className = 'chatbot-message bot';
+        botMessage.textContent = data.choices[0].message.content.trim();
+        chatbotMessages.appendChild(botMessage);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        lastRequestTime = currentTime;
+      } catch (error) {
+        console.error('Error al conectar con Open AI:', error);
+        const errorMessage = document.createElement('div');
+        errorMessage.className = 'chatbot-message bot';
+        errorMessage.textContent = error.message || '¡Ups! Algo salió mal, intenta de nuevo 🍎';
+        chatbotMessages.appendChild(errorMessage);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+      }
+    });
+  }
+
+  // Initialize all functions after DOM is fully loaded
+  setupChatbot();
   createFruitEmojis();
   setupMouseEffect();
   setupScrollAnimation();
   setupTouchEffects();
 });
 
-//MODAL AVISO DE PROVACIDAD
+// MODAL AVISO DE PRIVACIDAD
 document.addEventListener('DOMContentLoaded', function() {
   const modal = document.getElementById('modalAviso');
   const abrirBtn = document.getElementById('abrirModal');
   const aceptarBtn = document.querySelector('.boton-aceptar');
-  
-  // Abrir modal
+
+  if (!modal || !abrirBtn || !aceptarBtn) {
+    console.error("Faltan elementos del modal en el DOM. Asegúrate de que 'modalAviso', 'abrirModal' y '.boton-aceptar' existan en el HTML.");
+    return;
+  }
+
   abrirBtn.addEventListener('click', function() {
-    modal.classList.add('visible');
+    modal.classList.add('active');
   });
-  
-  // Cerrar modal al hacer clic en aceptar
+
   aceptarBtn.addEventListener('click', function() {
-    modal.classList.remove('visible');
+    modal.classList.remove('active');
   });
-  
-  // Cerrar modal al hacer clic fuera del contenido
+
   modal.addEventListener('click', function(e) {
     if (e.target === modal) {
-      modal.classList.remove('visible');
+      modal.classList.remove('active');
     }
   });
 });
+
+function toggleDescripcion(element) {
+  const valores = document.querySelectorAll('.valor-bubble');
+  const isActive = element.classList.contains('active');
+  valores.forEach(v => v.classList.remove('active'));
+  if (!isActive) {
+    element.classList.add('active');
+  }
+}
