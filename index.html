@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="tecamochas, escamochadas, snacks saludables, cocteltec, tec pachuca fruta">
+
+  <title>Tecamochas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&family=DynaPuff&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="tecamochas.css">
+</head>
+
+<body class="text-gray-700">
+
+  <!-- HEADER -->
+  <header class="bg-beige-100 shadow-md sticky top-0 z-50">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-6 py-4 gap-4">
+
+      <!-- Logo como botón de inicio -->
+      <a href="#inicio">
+        <img src="images/sinfot.png" alt="Logo" class="h-12 hover:opacity-80 transition duration-200">
+      </a>
+
+      <nav class="nav-menu-ovalado">
+        <a href="#inicio" class="nav-link-ovalado"><span>Inicio</span></a>
+        <a href="#productos" class="nav-link-ovalado"><span>Productos</span></a>
+        <a href="#nosotros" class="nav-link-ovalado"><span>Nosotros</span></a>
+        <a href="#ordenar" class="nav-link-ovalado nav-link-cta-ovalado"><span>¡Pide ya!</span></a>
+      </nav>
+    </div>
+  </header>
+
+
+
+
+  <!-- HERO FLOTANTE -->
+  <section id="inicio" style="background-color: #fffbe7"
+    class="relative h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden">
+    <div class="absolute inset-0 z-0" id="frutas-container"></div>
+    <div class="relative z-10">
+      <img src="images/sinfot.png" alt="TECAMOCHAS" class="hero-logo mx-auto animate-float">
+      <p
+        class="mt-4 text-xl md:text-2xl text-white font-medium hero-subtitle bg-blue-500 backdrop-blur-sm px-6 py-2 rounded-full">
+        Si el estrés te desgasta… ¡La fruta te rescata!</p>
+      <button
+        class="mt-8 border-2 border-blue-500 text-blue-500 px-8 py-3 rounded-full bg-white hover:bg-blue-100 transition-all hover:scale-105 font-bold shadow-lg">Ver
+        más</button>
+    </div>
+  </section>
+
+
+  <!-- SECCIÓN DE VIDEO -->
+  <section id="inicio" class="relative w-full h-[60vh] md:h-[80vh] overflow-hidden">
+    <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+      <source src="images/video1.mp4" type="video/mp4">
+      Tu navegador no soporta video HTML5.
+    </video>
+
+    <!-- Capa oscura opcional para legibilidad -->
+    <div class="absolute inset-0 bg-black bg-opacity-30 z-10"></div>
+
+    <!-- Texto superpuesto opcional -->
+    <div class="relative z-20 flex items-center justify-center h-full text-center text-white px-4">
+      <h1 class="text-3xl md:text-5xl font-bold drop-shadow-lg">¡Disfruta en cualquier momento!</h1>
+    </div>
+  </section>
+
+
+
+  <!-- MARQUESINA -->
+  <section class="bg-orange-200 marquee py-12">
+    <span class="text-3xl text-orange-800 font-bold duration-300">No sabemos si te va a pelar, pero va a sonreír🍌 -
+      Tareas, estrés y... ¡una Tecamocha, por favor!❤️ - ¿Quién necesita omvrez cuando hay fruta con chilito?🥭</span>
+  </section>
+
+  <!-- APROVECHA AHORA -->
+  <section class="relative py-20 bg-white">
+    <div class="text-center">
+      <h2 class="dynapuff-heading">Tus favoritos!</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
+        <div class="card bg-pink-100 combo-card">
+          <img src="images/personalizado.png" class="card-image">
+          <p class="combo-text">Combo personalizado</p>
+        </div>
+        <div class="card bg-pink-100 escamocha-card">
+          <img src="images/escamocha.png" class="card-image">
+          <p class="escamocha-text">Tecamocha tradicional</p>
+        </div>
+        <div class="card bg-pink-100 mango-card">
+          <img src="images/mango.png" class="card-image">
+          <p class="mango-text">Mango con chamoy</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDENAR AHORA -->
+  <section id="ordenar" class="relative py-10 bg-blue-50 overflow-hidden">
+    <!-- Contenedor principal - ahora más compacto -->
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-center md:gap-x-2">
+      <!-- Texto - con margen derecho negativo -->
+      <div class="md:w-auto text-center px-1 relative z-10 order-1 md:order-none md:-mr-2">
+        <h2 class="text-2xl md:text-5xl text-blue-600 dynapuff">Ordena Ahora y Disfruta ➡️</h2>
+      </div>
+
+      <!-- Botón-carrito - márgenes reducidos -->
+      <div class="w-full md:w-auto mt-2 md:mt-0 px-1 flex justify-center order-2 md:order-none">
+        <button
+          class="bg-transparent border-none p-0 focus:outline-none transform transition-all duration-300 hover:scale-110 active:scale-95">
+          <img src="images/carrito.png" alt="Ordenar ahora" class="h-24 md:h-28 object-contain">
+          <!-- Tamaño fijo para mejor control -->
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- MARQUESINA 2 -->
+  <section class="bg-pink-200 marquee py-10">
+    <span class="text-xl md:text-2xl lg:text-3xl text-pink-700 font-semibold">
+      ¡Tenemos algo especial para ti!🥰 - Haz tu pedido en segundos🤩 - Recoge o te lo llevamos hasta tu aula🫡
+    </span>
+  </section>
+
+  <!-- IDEAS DE LA ORGANIZACIÓN-->
+  <section class="relative py-20 bg-white min-h-screen flex items-center justify-center">
+    <div class="text-center w-full max-w-4xl px-4">
+      <h2 class="dynapuff-heading text-3xl md:text-4xl font-bold mb-10">¡HOY ES TU DÍA!</h2>
+      <img src="images/PROMOVERANO.png" alt="Promo Verano" class="w-full h-auto max-h-[70vh] object-contain mx-auto" />
+    </div>
+  </section>
+
+
+  <!-- COMENTARIOS -->
+  <section class="py-20 bg-white">
+    <h2 class="text-center text-3xl dynapuff text-orange-500 mb-10">Tu opinión nos interesa!</h2>
+
+    <!-- Botón para mostrar el formulario -->
+    <div class="text-center my-4">
+      <button id="showCommentFormBtn"
+        class="bg-orange-500 text-white py-2 px-4 rounded-md hover:bg-orange-600 transition duration-300">
+        Comentar
+      </button>
+    </div>
+
+    <!-- Formulario para nuevos comentarios (inicialmente oculto) -->
+    <div id="commentFormContainer" class="max-w-md mx-auto mb-12 p-6 bg-gray-50 rounded-xl shadow-sm hidden">
+      <h3 class="text-xl font-semibold text-orange-600 mb-4">Deja tu comentario</h3>
+      <form id="commentForm" class="space-y-4">
+        <div>
+          <label for="userName" class="block text-sm font-medium text-gray-700">Tu nombre</label>
+          <input type="text" id="userName" required
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500">
+        </div>
+        <div>
+          <label for="userComment" class="block text-sm font-medium text-gray-700">Tu comentario</label>
+          <textarea id="userComment" rows="3" required
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500"></textarea>
+        </div>
+        <button type="submit"
+          class="w-full bg-orange-500 text-white py-2 px-4 rounded-md hover:bg-orange-600 transition duration-300">
+          Publicar comentario
+        </button>
+      </form>
+    </div>
+
+
+    <!-- Contenedor de comentarios -->
+    <div id="commentsContainer" class="grid md:grid-cols-3 gap-8 px-6">
+      <!-- Comentarios iniciales -->
+      <div class="bg-blue-100 rounded-xl p-4 shadow-md touch-card">
+        "Están deliciosos!" <span class="font-semibold">- Juan</span>
+      </div>
+      <div class="bg-pink-100 rounded-xl p-4 shadow-md touch-card">
+        "Excelente servicio." <span class="font-semibold">- Daniela</span>
+      </div>
+      <div class="bg-orange-100 rounded-xl p-4 shadow-md touch-card">
+        "Muy recomendado." <span class="font-semibold">- Paco</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ¿QUIÉNES SOMOS? -->
+  <section id="acerca" class="bg-blue-100 py-16 px-6 text-center">
+    <h2 class="text-4xl dynapuff text-orange-600 mb-12">¿Quiénes somos?</h2>
+
+    <div class="max-w-4xl mx-auto space-y-10 text-gray-700">
+      <div>
+        <h3 class="text-2xl font-bold text-pink-500 mb-4">Misión</h3>
+        <p>
+          Brindar a estudiantes universitarios momentos de alivio y sabor a través de escamochas y cocteles frutales que
+          rescaten su energía y ánimo.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold text-blue-500 mb-4">Visión</h3>
+        <p>
+          Ser la marca número uno de snacks frutales dentro del Tec de Pachuca, y expandirse a otras universidades.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold text-green-500 mb-6">Valores</h3>
+        <div class="valores-container">
+          <!-- Cada valor es un botón redondo que al hacer clic muestra la descripción -->
+          <div class="valor-bubble" onclick="toggleDescripcion(this)">
+            😊 Bienestar
+            <div class="descripcion-valor">
+              Promover una alimentación más natural, ligera y que recargue la energía del estudiante.
+            </div>
+          </div>
+          <div class="valor-bubble" onclick="toggleDescripcion(this)">
+            🍉 Frescura
+            <div class="descripcion-valor">
+              No solo por los ingredientes, sino por la actitud joven, actual y relajada que debe reflejar la marca.
+            </div>
+          </div>
+          <div class="valor-bubble" onclick="toggleDescripcion(this)">
+            💛 Empatía
+            <div class="descripcion-valor">
+              Entender las necesidades reales del estudiante: cansancio, estrés, falta de tiempo y deseo de apapacho.
+            </div>
+          </div>
+          <div class="valor-bubble" onclick="toggleDescripcion(this)">
+            🎉 Diversión
+            <div class="descripcion-valor">
+              Convertir un simple snack en una experiencia divertida, creativa y con estilo propio.
+            </div>
+          </div>
+          <div class="valor-bubble" onclick="toggleDescripcion(this)">
+            📚 Cercanía
+            <div class="descripcion-valor">
+              Llegar directo a su aula, estar donde ellos están, generar comunidad.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- NOSOTROS -->
+  <section id="nosotros" class="team-section-circle">
+    <h2 class="team-title-circle">Nuestro equipo</h2>
+
+    <div class="team-container-circle">
+      <!-- Álvaro -->
+      <div class="team-member-circle" onclick="toggleMemberDescription('alvaro')">
+        <div class="img-container-circle alvaro-img">
+          <img src="images/Alvaro.png" class="team-img-circle" alt="Álvaro">
+        </div>
+        <h3 class="team-name-circle alvaro-name">Álvaro</h3>
+      </div>
+
+      <!-- Yesica -->
+      <div class="team-member-circle" onclick="toggleMemberDescription('yesica')">
+        <div class="img-container-circle yesica-img">
+          <img src="images/yesica.png" class="team-img-circle" alt="Yesica">
+        </div>
+        <h3 class="team-name-circle yesica-name">Yesica</h3>
+      </div>
+
+      <!-- Fernando -->
+      <div class="team-member-circle" onclick="toggleMemberDescription('fernando')">
+        <div class="img-container-circle fernando-img">
+          <img src="images/Fernando.png" class="team-img-circle" alt="Fernando">
+        </div>
+        <h3 class="team-name-circle fernando-name">Fernando</h3>
+      </div>
+    </div>
+
+    <!-- Contenedor para mostrar la descripción -->
+    <div id="member-description"
+      class="member-description mt-8 max-w-4xl mx-auto px-6 py-4 rounded-lg text-gray-700 bg-yellow-50 shadow-md text-center"
+      style="display:none;"></div>
+  </section>
+
+
+  <!-- SÍGUENOS -->
+  <section class="bg-pink-100 py-10 text-center">
+    <h2 class="text-3xl dynapuff text-pink-600 mb-4">Síguenos en nuestras redes sociales</h2>
+    <div class="flex justify-center gap-6">
+      <a href="#" class="text-blue-600 text-xl">Facebook</a>
+      <a href="#" class="text-pink-500 text-xl">Instagram</a>
+      <a href="#" class="text-black-500 text-xl">Tiktok</a>
+    </div>
+  </section>
+
+
+  <!-- CONTACTO -->
+  <section class="bg-green-100 py-10 text-center">
+    <h1 class="text-center text-3xl dynapuff text-green-500 mb-10">¿Podemos ayudarte?, envíanos un correo</h1>
+    <button id="mostrarFormulario"
+      class="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-500 transition duration-300">Enviar
+      correo💌</button>
+
+    <div id="formContainer" class="hidden">
+      <form id="formularioContacto">
+        <input type="text" id="nombre" placeholder="Tu nombre" required>
+        <input type="email" id="correo" placeholder="Tu correo electrónico" required>
+        <textarea id="mensaje" placeholder="Tu mensaje" rows="5" required></textarea>
+
+        <div class="form-actions">
+          <button type="submit">Enviar</button>
+          <button type="button" id="cancelBtn">Cancelar</button>
+        </div>
+
+        <div id="mensajeFeedback"></div>
+      </form>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="tecamochas.js"></script>
+
+
+  <!-- AVISO DE PRIVACIDAD -->
+<div class="bg-blue-100 py-10 text-center">
+  <h1 class="text-3xl dynapuff text-blue-500 mb-10">¡Tus datos están seguros con nosotros!</h1>
+  <button onclick="document.getElementById('modalAviso').style.display='block'"
+    class="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-400 transition duration-300">
+    Ver aviso de Privacidad✅
+  </button>
+</div>
+
+  <!-- Modal del aviso -->
+<div id="modalAviso" class="modal">
+  <div class="modal-contenido">
+    <h1 class="titulo-modal"><strong>🍓 Aviso de Privacidad – Tecamochas 🥭</strong></h1>
+    <div class="texto-modal">
+     <p>En Tecamochas, con domicilio Venta Prieta, Pachuca de Soto, Hgo. estamos 
+      comprometidos con la protección de tus datos personales. Este Aviso de Privacidad 
+      explica cómo recopilamos, usamos, protegemos y, en su caso, compartimos la información 
+      personal que nos proporcionas a través de nuestra página web dedicada a la venta de cócteles
+       de frutas y escamochas.</p>
+       <br>
+      <p><strong>Datos recopilados:</strong></p>
+      <p>Nombre, correo, teléfono, dirección, datos de pago (protegidos), navegación (cookies), preferencias y pedidos.</p>
+      <br>
+      <p><strong>Finalidades:</strong></p>
+      <ul>
+        <li><strong>Primarias:</strong> Procesar pedidos, confirmar compras, atención al cliente.</li>
+        <li><strong>Secundarias:</strong> Promociones y análisis del uso web (previo consentimiento).</li>
+        <br>
+      </ul>
+      <br>
+      <p><strong>Transferencia de datos:</strong> </p>
+      <p>Solo a plataformas de pago y entrega, o por requerimiento legal.</p>
+      <br> 
+      <p><strong>Seguridad:</strong> </p>
+      <p>Usamos conexiones seguras (SSL) y protección de datos físicos y digitales.</p>
+      <br>
+      <p><strong>Derechos ARCO:</strong> </p>
+      <p>Puedes solicitar acceso, rectificación, cancelación u oposición escribiendo a <a href="mailto:tecamochas@gmail.com">tecamochas@gmail.com</a> o al 771 501 5000.</p>
+      <br> 
+      <p><strong>Cookies:</strong> </p>
+      <p>Utilizamos cookies para mejorar tu experiencia. Puedes gestionarlas desde tu navegador.</p>
+      <br>
+      <p><strong>Actualizaciones:</strong></p>
+      <p> Cualquier cambio será publicado en nuestra página web.</p>
+      <br>
+      <p><strong>¿Dudas?, contáctanos en:</strong></p>
+      <p>tecamochas@gmail.com / 771-501-5000</p>
+     <br>
+      <p><strong>¡Gracias por confiar en nosotros para disfrutar de los mejores cócteles de frutas y escamochas!</strong></p>
+    </div>
+    <div class="text-center mt-8">
+      <button onclick="document.getElementById('modalAviso').style.display='none'"
+        class="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-400 transition duration-300">
+        Aceptar 🍍
+      </button>
+    </div>
+  </div>
+</div>
+
+  <!-- FOOTER -->
+  <footer class="bg-pink-300 text-center py-4 text-white">
+    <p>&copy; 2025 Tecamochas. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="tecamochas.js"></script>
+
+</body>
+
+</html>
